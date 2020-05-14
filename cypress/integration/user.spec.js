@@ -31,16 +31,10 @@ describe('user', ()=>{
 
     });
 
-    it('user can Login to the web application', ()=>{
-
-        const createUserEmail = Cypress.env('createUserEmail');
-        const createUserPassword = Cypress.env('createUserPassword');
-
-        cy.log(createUserEmail, createUserPassword);
-
+    it('user can Login to the web application', () => {
         cy.visit('http://Localhost:9898798/');
-        cy.get('email').type(createUserEmail);// email on the login page
-        cy.get('password').type(createUserPassword);// password on the login page
+        cy.get('email').type(Cypress.env('createUserEmail'));// email on the login page
+        cy.get('password').type(Cypress.env('createUserPassword'));// password on the login page
         cy.get('.button').click(); // submit button to login
     });
 });
